@@ -13,10 +13,10 @@ public:
 	void OnTranslate(GESTUREINFO gestureInfo);
 	void OnScale(GESTUREINFO gestureInfo);
 	void OnRotate(GESTUREINFO gestureInfo);
+	void OnSingleTap(GESTUREINFO gestureInfo);
+	void OnSecondaryTap(GESTUREINFO gestureInfo);
 
-	// translate
 	ofVec2f startPoint;
-	// scale
 	UINT64	ullArguments;
 	ofVec3f scaleInfo;
 
@@ -24,6 +24,8 @@ public:
 	ofEvent<ofVec2f> eventPan;
 	ofEvent<ofVec3f> eventZoom;
 	ofEvent<float>	eventRotate;
+	ofEvent<void>	eventSingleTap;
+	ofEvent<void>	eventSecondaryTap;
 
 private:
 

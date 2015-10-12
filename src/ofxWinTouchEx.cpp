@@ -30,35 +30,26 @@ LRESULT CALLBACK windowProcSubclass(HWND hWnd, UINT message, WPARAM wParam, LPAR
 
 		if (bResult)
 		{
-			// now interpret the gesture
 			switch (gi.dwID)
 			{
 			case GID_ZOOM:
-				// Code for zooming goes here   
-				//cout << "ZOOM" << endl;
 				winTouchPtr->OnScale(gi);
 				bHandled = TRUE;
 				break;
 			case GID_PAN:
-				// Code for panning goes here
-				//cout << "PAN" << endl;
 				winTouchPtr->OnTranslate(gi);
 				bHandled = TRUE;
 				break;
 			case GID_ROTATE:
-				// Code for rotation goes here
-				//cout << "ROTATE" << endl;
 				winTouchPtr->OnRotate(gi);
 				bHandled = TRUE;
 				break;
 			case GID_TWOFINGERTAP:
-				// Code for two-finger tap goes here
-				//cout << "TWOFINGERTAP" << endl;
+				winTouchPtr->OnSingleTap(gi);
 				bHandled = TRUE;
 				break;
 			case GID_PRESSANDTAP:
-				// Code for roll over goes here
-				//cout << "PRESSANDTAP" << endl;
+				winTouchPtr->OnSecondaryTap(gi);
 				bHandled = TRUE;
 				break;
 			default:
@@ -220,4 +211,14 @@ void ofxWinTouchEx::OnRotate(GESTUREINFO gestureInfo)
 
 		break;
 	}
+}
+
+void ofxWinTouchEx::OnSingleTap(GESTUREINFO gestureInfo)
+{
+	ofNotifyEvent(eventSingleTap);
+}
+
+void ofxWinTouchEx::OnSecondaryTap(GESTUREINFO gestureInfo)
+{
+	ofNotifyEvent(eventSecondaryTap);
 }

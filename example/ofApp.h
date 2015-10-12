@@ -26,6 +26,8 @@ class ofApp : public ofBaseApp{
 		void gestureMove(ofVec2f& v);
 		void gestureZoom(ofVec3f& v);
 		void gestureRotate(float& v);
+		void gestureSingleTap();
+		void gestureSecondaryTap();
 
 		ofxWinTouchEx touchEx;
 		

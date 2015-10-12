@@ -10,6 +10,8 @@ void ofApp::setup(){
 	ofAddListener(touchEx.eventPan, this, &ofApp::gestureMove);
 	ofAddListener(touchEx.eventZoom, this, &ofApp::gestureZoom);
 	ofAddListener(touchEx.eventRotate, this, &ofApp::gestureRotate);
+	ofAddListener(touchEx.eventSingleTap, this, &ofApp::gestureSingleTap);
+	ofAddListener(touchEx.eventSecondaryTap, this, &ofApp::gestureSecondaryTap);
 
 }
 
@@ -86,6 +88,16 @@ void ofApp::gestureZoom(ofVec3f & v)
 void ofApp::gestureRotate(float& v)
 {
 	cout << "Rotate:" << v << endl;
+}
+
+void ofApp::gestureSingleTap()
+{
+	cout << "Single Tap" << endl;
+}
+
+void ofApp::gestureSecondaryTap()
+{
+	cout << "Secondary Tap" << endl;
 }
 
 //--------------------------------------------------------------
